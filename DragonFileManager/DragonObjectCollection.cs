@@ -18,38 +18,41 @@ namespace DragonFileManager
                 string[] bucket = path.Split("story\\")[1].Split('\\');
                 if (!bucket[0].Contains("translate by other ppl") && bucket.Length == 2)
                 {
-                    SortByLanguage(path, bucket, "_en");
-                    SortByLanguage(path, bucket, "_zh");
+                    SortByLanguage(path, bucket, new string[] { "_en", "_zh" });
                 }
             }
         }
 
-        private void SortByLanguage(string path, string[] bucket, string langTag)
+        private void SortByLanguage(string path, string[] bucket, string[] langTags)
         {
-            // 0. writer
-            // 1. file_name
-            if (bucket[1].Contains(langTag))
+            foreach (string langTag in langTags)
             {
-                string storyName = bucket[1].Split(langTag)[0];
-                bool alreadyCategory = false;
-
-                for (int i = 0; i < list.Count; i++)
+                // bucket:
+                // 0. writer
+                // 1. file_name
+                if (bucket[1].Contains(langTag))
                 {
-                    if (list[i].storyName.Contains(storyName))
+                    string storyName = bucket[1].Split(langTag)[0];
+                    bool alreadyCategory = false;
+
+                    for (int i = 0; i < list.Count; i++)
                     {
-                        list[i].AddLinkByLanguageTag(langTag, path);
-                        alreadyCategory = true;
-                        break;
+                        if (list[i].storyName.Contains(storyName))
+                        {
+                            list[i].AddLinkByLanguageTag(langTag, path);
+                            alreadyCategory = true;
+                            break;
+                        }
                     }
-                }
 
-                if (!alreadyCategory)
-                {
-                    DragonObject dragonObj = new DragonObject();
-                    dragonObj.writer = bucket[0];
-                    dragonObj.storyName = storyName;
-                    dragonObj.AddLinkByLanguageTag(langTag, path);
-                    list.Add(dragonObj);
+                    if (!alreadyCategory)
+                    {
+                        DragonObject dragonObj = new DragonObject();
+                        dragonObj.writer = bucket[0];
+                        dragonObj.storyName = storyName;
+                        dragonObj.AddLinkByLanguageTag(langTag, path);
+                        list.Add(dragonObj);
+                    }
                 }
             }
         }
