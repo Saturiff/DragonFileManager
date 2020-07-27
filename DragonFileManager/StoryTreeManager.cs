@@ -6,7 +6,7 @@ namespace DragonFileManager
 {
     public class StoryTreeManager
     {
-        public StoryTreeManager(StackPanel storyBucket, DragonObjectCollection doc, TextEditor tb1, TextEditor tb2)
+        public StoryTreeManager(StackPanel storyBucket, DragonObjectCollection doc, DragonTextEditor tb1, DragonTextEditor tb2)
         {
             this.storyBucket = storyBucket;
             this.doc = doc;
@@ -71,7 +71,7 @@ namespace DragonFileManager
         StackPanel storyBucket;
         DragonObjectCollection doc;
         List<StoryButton> storyButtons = new List<StoryButton>();
-        TextEditor tb1;
-        TextEditor tb2;
+        DragonTextEditor tb1;
+        DragonTextEditor tb2;
     }
 }

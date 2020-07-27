@@ -1,5 +1,6 @@
 ﻿using ICSharpCode.AvalonEdit;
 using System.IO;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -8,7 +9,7 @@ namespace DragonFileManager
 {
     public class StoryButton : Button
     {
-        public StoryButton(DragonObject drgObj, bool isWriter, StoryTreeManager stm, TextEditor tb1, TextEditor tb2)
+        public StoryButton(DragonObject drgObj, bool isWriter, StoryTreeManager stm, DragonTextEditor tb1, DragonTextEditor tb2)
         {
             this.drgObj = drgObj;
             this.isWriter = isWriter;
@@ -44,11 +45,13 @@ namespace DragonFileManager
                 if (drgObj.enStoryLink != "")
                 {
                     tb1.Load(drgObj.enStoryLink);
+                    tb1.AddInfo(drgObj);
                 }
 
                 if (drgObj.zhStoryLink != "")
                 {
                     tb2.Load(drgObj.zhStoryLink);
+                    tb2.AddInfo(drgObj);
                 }
             }
         }
@@ -56,7 +59,7 @@ namespace DragonFileManager
         public DragonObject drgObj;
         public bool isWriter;
         private StoryTreeManager stm;
-        private TextEditor tb1;
-        private TextEditor tb2;
+        private DragonTextEditor tb1;
+        private DragonTextEditor tb2;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace DragonFileManager
+﻿using System.Drawing;
+
+namespace DragonFileManager
 {
     public class DragonObject
     {
@@ -7,6 +9,7 @@
             storyName = "";
             enStoryLink = "";
             zhStoryLink = "";
+            imageLink = "";
             writer = "";
         }
         
@@ -21,11 +24,16 @@
             {
                 zhStoryLink = link;
             }
+            else
+            {
+                imageLink = link;
+            }
         }
 
         public string storyName;
         public string enStoryLink;
         public string zhStoryLink;
+        public string imageLink;
         public string writer;
         // tag?
     }

@@ -26,13 +26,13 @@
 
             <Grid x:Name="G_Main" Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto"
             UseLayoutRounding="False" >
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="50"/>
@@ -46,14 +46,13 @@
                     <StackPanel x:Name="SP_TreeView" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"/>
                 </ScrollViewer>
 
-                <avalon:TextEditor x:Name="TE_Area1" ShowLineNumbers="True" Width="auto" Height="auto" WordWrap="True" FontSize="20" Grid.Row="0" Grid.Column="2"/>
-                <avalon:TextEditor x:Name="TE_Area2" ShowLineNumbers="True" Width="auto" Height="auto" WordWrap="True" FontSize="20" Grid.Row="2" Grid.Column="2"/>
-
-                <!--Button Content="Save" HorizontalAlignment="Center" Background="#00DDDDDD" 
-                        BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20" Grid.Row="1" Grid.Column="2" Click="ClickSave01"/-->
+                <Button Content="Save" HorizontalAlignment="Center" Background="#00DDDDDD" 
+                        BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20" Grid.Column="2" Click="ClickSave" Width="250" VerticalAlignment="Center" Grid.Row="1" Margin="250,0,0,0"/>
+                <Button Content="Image" HorizontalAlignment="Center" Background="#00DDDDDD" 
+                        BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20" Grid.Column="2" Click="ClickImage" Width="250" VerticalAlignment="Center" Grid.Row="1" Margin="0,0,250,0"/>
 
             </Grid>
-                
+
         </DockPanel>
 
     </Grid>
