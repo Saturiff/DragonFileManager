@@ -21,7 +21,7 @@ namespace DragonFileManager
 
         private void GetAllPath()
         {
-            dirBFS(ref _dirPath, _rootPath);
+            DirBFS(ref _dirPath, _rootPath);
 
             foreach (string dir in _dirPath)
             {
@@ -45,14 +45,14 @@ namespace DragonFileManager
             return dirPath;
         }
 
-        protected void dirBFS(ref List<string> dirPathList, string dirPath)
+        protected void DirBFS(ref List<string> dirPathList, string dirPath)
         {
             List<string> dir = GetDir(dirPath);
             if (dir.Count == 0) return;
             foreach (string subDir in dir)
             {
                 dirPathList.Add(subDir);
-                dirBFS(ref dirPathList, subDir);
+                DirBFS(ref dirPathList, subDir);
             }
         }
 
